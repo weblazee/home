@@ -300,4 +300,149 @@
       }
     });
   }
+  /* ===== PRICING OVERLAY ===== */
+  const PRICING_DATA = [
+    {
+      id: 'micro',
+      title: 'Micro-negocio',
+      desc: 'Barbería, cafetería, taller — webs sencillas y eficaces.',
+      plans: [
+        { name: 'Básica', today: 347, monthly: 0, total: 347, host: 'Cliente propio', includes: 'Web 1 página estática. Sin soporte ni cambios.' },
+        { name: 'Señuelo', today: 497, monthly: 0, total: 497, host: 'Cliente propio', includes: 'Web completa estática. Sin mantenimiento.' },
+        { name: 'Recomendada', today: 197, monthly: 47, total: 761, host: 'Nosotros', includes: 'Web + Hosting + Copias de seguridad + 1h cambios/mes + Soporte email.', featured: true },
+        { name: 'Premium', today: 347, monthly: 27, total: 671, host: 'Nosotros', includes: 'Opción Recomendada + 3h/mes + WhatsApp + Base de datos rápida.' },
+        { name: 'Sin pago inicial', today: 0, monthly: 67, total: 804, host: 'Nosotros', includes: 'Mismo que Recomendada, sin pago hoy.' }
+      ]
+    },
+    {
+      id: 'estandar',
+      title: 'Estándar',
+      desc: 'Restaurante, clínica, gimnasio — presencia profesional completa.',
+      plans: [
+        { name: 'Básica', today: 497, monthly: 0, total: 497, host: 'Cliente propio', includes: 'Web 5 páginas estáticas. Sin soporte ni cambios.' },
+        { name: 'Señuelo', today: 997, monthly: 0, total: 997, host: 'Cliente propio', includes: 'Web completa dinámica. Sin mantenimiento.' },
+        { name: 'Recomendada', today: 297, monthly: 67, total: 1101, host: 'Nosotros', includes: 'Web + Hosting + Copias de seguridad + 3h cambios/mes + SEO básico + WhatsApp.', featured: true },
+        { name: 'Premium', today: 497, monthly: 47, total: 1061, host: 'Nosotros', includes: 'Opción Recomendada + Cambios ilimitados + Informes mensuales + CDN (más velocidad).' },
+        { name: 'Sin pago inicial', today: 0, monthly: 97, total: 1164, host: 'Nosotros', includes: 'Mismo que Recomendada, sin pago hoy.' }
+      ]
+    },
+    {
+      id: 'premium',
+      title: 'Premium',
+      desc: 'Inmobiliaria, estudio legal, reformas — webs de alta gama.',
+      plans: [
+        { name: 'Básica', today: 697, monthly: 0, total: 697, host: 'Cliente propio', includes: 'Web 10 páginas estáticas. Sin soporte.' },
+        { name: 'Señuelo', today: 1500, monthly: 0, total: 1500, host: 'Cliente propio', includes: 'Web completa dinámica. Sin mantenimiento.' },
+        { name: 'Recomendada', today: 497, monthly: 97, total: 1661, host: 'Nosotros', includes: 'Web + Hosting + Copias de seguridad + 5h cambios/mes + SEO mensual + Soporte prioritario.', featured: true },
+        { name: 'Premium', today: 797, monthly: 67, total: 1601, host: 'Nosotros', includes: 'Opción Recomendada + Cambios ilimitados + Gestión redes básica + VPS (servidor dedicado virtual).' },
+        { name: 'Sin pago inicial', today: 0, monthly: 147, total: 1764, host: 'Nosotros', includes: 'Mismo que Recomendada, sin pago hoy.' }
+      ]
+    },
+    {
+      id: 'ecommerce',
+      title: 'E-commerce',
+      desc: 'Tiendas online, multi-idioma, reservas — vende 24/7.',
+      plans: [
+        { name: 'Básica', today: 897, monthly: 0, total: 897, host: 'Cliente propio', includes: 'Tienda hasta 50 productos. Sin soporte.' },
+        { name: 'Señuelo', today: 2500, monthly: 0, total: 2500, host: 'Shopify (cliente paga licencia)', includes: 'Tienda completa en Shopify. Sin mantenimiento nuestro.' },
+        { name: 'Recomendada', today: 697, monthly: 147, total: 2461, host: 'Nosotros', includes: 'Tienda custom + Hosting + Copias de seguridad + 5h cambios/mes + SEO avanzado + Pasarela pagos.', featured: true },
+        { name: 'Premium', today: 1200, monthly: 97, total: 2364, host: 'Shopify gestionado por nosotros', includes: 'Opción Recomendada + Cambios ilimitados + Integración redes + Informes.' },
+        { name: 'Sin pago inicial', today: 0, monthly: 197, total: 2364, host: 'Nosotros', includes: 'Mismo que Recomendada, sin pago hoy.' }
+      ]
+    }
+  ];
+
+  const overlay = $('#pricing');
+  const tabsWrap = $('#pricingTabs');
+  const bodyWrap = $('#pricingBody');
+  const fab = $('#pricingFab');
+
+  if (overlay && tabsWrap && bodyWrap) {
+    const fmt = (n) => n === 0 ? 'Gratis' : '€' + n.toLocaleString('es-ES');
+
+    PRICING_DATA.forEach((tab, i) => {
+      const tBtn = document.createElement('button');
+      tBtn.type = 'button';
+      tBtn.className = 'pricing-tab';
+      tBtn.setAttribute('role', 'tab');
+      tBtn.setAttribute('aria-selected', String(i === 0));
+      tBtn.dataset.target = tab.id;
+      tBtn.textContent = tab.title;
+      tabsWrap.appendChild(tBtn);
+
+      const panel = document.createElement('div');
+      panel.className = 'pricing-panel' + (i === 0 ? ' is-active' : '');
+      panel.dataset.panel = tab.id;
+      panel.setAttribute('role', 'tabpanel');
+      panel.innerHTML = `
+        <p class="pricing-panel__intro">${tab.desc}</p>
+        <div class="pricing-grid">
+          ${tab.plans.map(p => `
+            <article class="pricing-card${p.featured ? ' is-featured' : ''}">
+              ${p.featured ? '<span class="pricing-card__badge">Recomendada</span>' : ''}
+              <h3 class="pricing-card__name">${p.name}</h3>
+              <div class="pricing-card__price"><strong>${fmt(p.today)}</strong><small>pago hoy</small></div>
+              <div class="pricing-card__monthly">+ <strong>${p.monthly === 0 ? '€0' : '€' + p.monthly}</strong> /mes (12 meses)</div>
+              <span class="pricing-card__total">Total año 1: €${p.total.toLocaleString('es-ES')}</span>
+              <p class="pricing-card__includes">${p.includes}</p>
+              <div class="pricing-card__host">Alojamiento: <strong>${p.host}</strong></div>
+            </article>
+          `).join('')}
+        </div>
+      `;
+      bodyWrap.appendChild(panel);
+    });
+
+    const setActiveTab = (id) => {
+      $$('.pricing-tab', tabsWrap).forEach(b => b.setAttribute('aria-selected', String(b.dataset.target === id)));
+      $$('.pricing-panel', bodyWrap).forEach(p => p.classList.toggle('is-active', p.dataset.panel === id));
+    };
+    tabsWrap.addEventListener('click', (e) => {
+      const b = e.target.closest('.pricing-tab');
+      if (b) setActiveTab(b.dataset.target);
+    });
+
+    let lastFocus = null;
+    const openPricing = () => {
+      lastFocus = document.activeElement;
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('pricing-open');
+      // close mobile nav if open
+      if (navMobile && navMobile.dataset.open === 'true') {
+        navMobile.dataset.open = 'false'; navMobile.hidden = true;
+        burger?.setAttribute('aria-expanded', 'false');
+      }
+      setTimeout(() => $('.pricing-close', overlay)?.focus(), 300);
+    };
+    const closePricing = () => {
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('pricing-open');
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    };
+
+    $$('[data-open-pricing]').forEach(el => el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPricing();
+    }));
+    $$('[data-close-pricing]', overlay).forEach(el => el.addEventListener('click', closePricing));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) closePricing();
+    });
+
+    // FAB visibility on scroll
+    if (fab) {
+      let ticking = false;
+      const updateFab = () => {
+        const show = window.scrollY > window.innerHeight * 0.7;
+        fab.classList.toggle('is-visible', show);
+        ticking = false;
+      };
+      window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(updateFab); ticking = true; }
+      }, { passive: true });
+      updateFab();
+    }
+  }
 })();
