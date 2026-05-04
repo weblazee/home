@@ -405,3 +405,138 @@ h1,h2,h3,h4{font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;letter-
   .ben__img img{max-height:260px}
   .ba{max-height:300px}
 }
+
+/* ============ Pricing FAB + Overlay ============ */
+.pricing-fab{
+  position:fixed;right:22px;bottom:22px;z-index:60;
+  display:inline-flex;align-items:center;gap:10px;
+  padding:13px 22px;border-radius:999px;
+  background:var(--grad);color:#fff;font-weight:600;font-size:.95rem;
+  box-shadow:var(--shadow-glow);
+  opacity:0;transform:translateY(20px) scale(.9);pointer-events:none;
+  transition:opacity .35s var(--ease),transform .35s var(--ease),box-shadow .25s var(--ease);
+}
+.pricing-fab.is-visible{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.pricing-fab:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 22px 70px -20px rgba(var(--primary-rgb),.65),0 0 0 1px rgba(var(--primary-rgb),.3) inset}
+@media (max-width:640px){.pricing-fab{right:14px;bottom:14px;padding:11px 18px;font-size:.88rem}}
+
+body.pricing-open{overflow:hidden}
+
+.pricing-overlay{
+  position:fixed;inset:0;z-index:90;
+  visibility:hidden;pointer-events:none;
+}
+.pricing-overlay__backdrop{
+  position:absolute;inset:0;
+  background:rgba(6,7,11,.7);backdrop-filter:blur(14px) saturate(140%);
+  opacity:0;transition:opacity .5s var(--ease);
+}
+.pricing-overlay__panel{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  background:linear-gradient(180deg,var(--bg-2) 0%,var(--bg) 100%);
+  transform:translateY(100%);
+  transition:transform .55s var(--ease);
+  overflow:hidden;
+}
+.pricing-overlay.is-open{visibility:visible;pointer-events:auto}
+.pricing-overlay.is-open .pricing-overlay__backdrop{opacity:1}
+.pricing-overlay.is-open .pricing-overlay__panel{transform:translateY(0)}
+
+.pricing-head{
+  position:sticky;top:0;z-index:2;
+  padding:28px 32px 18px;
+  border-bottom:1px solid var(--border);
+  background:rgba(11,13,20,.85);backdrop-filter:blur(14px);
+}
+.pricing-head__top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:22px}
+.pricing-head .chip{margin-bottom:10px}
+.pricing-head .h2{font-size:clamp(1.5rem,2.6vw,2.2rem)}
+.pricing-head .sub{margin:8px 0 0;text-align:left}
+
+.pricing-close{
+  flex-shrink:0;display:grid;place-items:center;
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--border-strong);background:rgba(255,255,255,.04);color:var(--text);
+  transition:all .2s;
+}
+.pricing-close:hover{background:var(--grad);border-color:transparent;transform:rotate(90deg)}
+
+.pricing-tabs{
+  display:flex;flex-wrap:wrap;gap:6px;
+  padding:6px;border-radius:999px;
+  border:1px solid var(--border-strong);background:rgba(255,255,255,.03);
+  width:fit-content;max-width:100%;overflow-x:auto;
+}
+.pricing-tab{
+  padding:9px 18px;border-radius:999px;font-size:.88rem;font-weight:500;
+  color:var(--muted);white-space:nowrap;transition:all .25s var(--ease);
+}
+.pricing-tab:hover{color:var(--text)}
+.pricing-tab[aria-selected="true"]{background:var(--grad);color:#fff;box-shadow:var(--shadow-glow)}
+
+.pricing-body{
+  flex:1;overflow-y:auto;
+  padding:36px 32px 60px;
+  -webkit-overflow-scrolling:touch;
+}
+.pricing-panel{display:none;animation:pricingFade .4s var(--ease)}
+.pricing-panel.is-active{display:block}
+@keyframes pricingFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.pricing-panel__intro{text-align:center;margin-bottom:28px;color:var(--muted);max-width:60ch;margin-left:auto;margin-right:auto;font-size:.95rem}
+
+.pricing-grid{
+  display:grid;gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+}
+.pricing-card{
+  position:relative;display:flex;flex-direction:column;
+  padding:26px 22px;border-radius:var(--radius);
+  border:1px solid var(--border-strong);
+  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
+  transition:transform .25s var(--ease),border-color .25s,box-shadow .25s;
+}
+.pricing-card:hover{transform:translateY(-4px);border-color:rgba(var(--primary-rgb),.4)}
+.pricing-card.is-featured{
+  border-color:rgba(var(--primary-rgb),.55);
+  background:radial-gradient(circle at 50% 0%,rgba(var(--primary-rgb),.15),transparent 70%),var(--surface);
+  box-shadow:var(--shadow-glow);
+}
+.pricing-card__badge{
+  position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+  padding:5px 12px;border-radius:999px;background:var(--grad);color:#fff;
+  font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  box-shadow:var(--shadow-glow);
+}
+.pricing-card__name{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;margin:0 0 14px}
+.pricing-card__price{display:flex;align-items:baseline;gap:6px;margin-bottom:4px}
+.pricing-card__price strong{font-family:'Space Grotesk',sans-serif;font-size:2rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.pricing-card__price small{color:var(--muted);font-size:.78rem}
+.pricing-card__monthly{font-size:.88rem;color:var(--muted);margin-bottom:14px}
+.pricing-card__monthly strong{color:var(--text);font-weight:600}
+.pricing-card__total{
+  display:inline-block;font-size:.78rem;color:var(--primary-glow);
+  padding:4px 10px;border-radius:999px;border:1px solid rgba(var(--primary-rgb),.3);
+  background:rgba(var(--primary-rgb),.06);margin-bottom:16px;align-self:flex-start;
+}
+.pricing-card__includes{font-size:.88rem;color:var(--muted);line-height:1.5;margin:0 0 14px;flex:1}
+.pricing-card__host{
+  font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;
+  padding-top:14px;border-top:1px solid var(--border);
+}
+.pricing-card__host strong{color:var(--text);text-transform:none;letter-spacing:0;font-weight:600}
+
+@media (max-width:680px){
+  .pricing-head{padding:20px 18px 14px}
+  .pricing-head__top{gap:14px;margin-bottom:18px}
+  .pricing-body{padding:24px 16px 48px}
+  .pricing-tab{padding:8px 14px;font-size:.82rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .pricing-overlay__panel{transition:opacity .3s}
+  .pricing-overlay__panel{transform:none;opacity:0}
+  .pricing-overlay.is-open .pricing-overlay__panel{opacity:1}
+  .pricing-fab,.pricing-card,.pricing-close{transition:none}
+}
