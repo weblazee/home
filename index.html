@@ -1,600 +1,147 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0A0A0A" />
-  <meta name="color-scheme" content="dark" />
-
-  <title>Weblaze — Estudio digital · Webs premium que convierten</title>
-  <meta name="description" content="Weblaze diseña y desarrolla webs premium, ultra rápidas y orientadas a ventas. Sin plantillas. Respuesta en menos de 24h." />
-  <meta name="author" content="Weblaze" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Weblaze" />
-  <meta property="og:title" content="Weblaze — Webs premium que convierten" />
-  <meta property="og:description" content="Diseñamos y desarrollamos sitios premium, ultra rápidos y orientados a ventas." />
-  <meta property="og:url" content="/" />
-  <meta property="og:locale" content="es_ES" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Weblaze — Webs premium que convierten" />
-  <meta name="twitter:description" content="Diseñamos y desarrollamos sitios premium, ultra rápidos y orientados a ventas." />
-
-  <link rel="canonical" href="/" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23F5F5F5' d='M16 2c2 5-3 7-3 12a6 6 0 0012 0c0-3-2-5-3-7 4 2 7 6 7 11a10 10 0 11-20 0c0-7 6-10 7-16z'/></svg>" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
-
-  <link rel="stylesheet" href="styles.css" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Weblaze",
-    "url": "/",
-    "email": "webcreatorspains@gmail.com",
-    "telephone": "+34 689 19 44 99",
-    "areaServed": "Europe",
-    "description": "Estudio digital especializado en webs premium, ultra rápidas y orientadas a ventas.",
-    "sameAs": []
-  }
-  </script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Weblaze — Web design & development studio</title>
+<meta name="description" content="Weblaze designs and builds fast, conversion-focused websites. Custom design, SEO and engineering for ambitious brands." />
+<meta property="og:title" content="Weblaze — Web design & development studio" />
+<meta property="og:description" content="Custom websites, built to convert. Design, development and SEO from a small specialist studio." />
+<link rel="icon" type="image/png" href="logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<a class="skip" href="#main">Saltar al contenido</a>
-
-<header class="nav" role="banner">
-  <a href="#" class="nav__brand" aria-label="Weblaze — inicio">
-    <svg class="nav__logo" viewBox="0 0 32 32" aria-hidden="true">
-      <path fill="currentColor" d="M16 2c2 5-3 7-3 12a6 6 0 0012 0c0-3-2-5-3-7 4 2 7 6 7 11a10 10 0 11-20 0c0-7 6-10 7-16z"/>
-    </svg>
-    <span class="nav__word">Weblaze</span>
-    <span class="nav__reg">®</span>
-  </a>
-  <nav class="nav__links" aria-label="Principal">
-    <a href="#capacidades">Soluciones</a>
-    <a href="#proceso">Proceso</a>
-    <a href="#planes">Presupuesto</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-  <a href="#contacto" class="btn btn--primary nav__cta">
-    Contáctanos
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
-  </a>
-  <button class="nav__burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
-    <span></span><span></span>
-  </button>
-</header>
-
-<div class="mobile-menu" id="mobile-menu" hidden>
-  <a href="#capacidades">Soluciones</a>
-  <a href="#proceso">Proceso</a>
-  <a href="#planes">Presupuesto</a>
-  <a href="#contacto">Contacto</a>
-  <a href="#contacto" class="btn btn--primary">Contáctanos</a>
+<!-- Preloader -->
+<div id="preloader" aria-hidden="false">
+  <div class="preloader-inner">
+    <img src="logo.png" alt="Weblaze" width="48" height="48" class="preloader-logo" />
+    <div class="preloader-bar"><div id="preloader-fill"></div></div>
+    <div class="preloader-text"><span data-i18n="hero.loading">Loading assets</span> · <span id="preloader-pct">0%</span></div>
+  </div>
 </div>
 
-<main id="main">
-
-  <!-- 01 HERO — pixel reveal -->
-  <section class="hero" aria-labelledby="hero-title">
-
-    <!-- z:0 reveal layer (visible only through pixel dissolve) -->
-    <div class="hero__reveal" aria-hidden="true">
-      <div class="hero__reveal-grad"></div>
+<!-- Nav -->
+<nav class="nav">
+  <a href="#top" class="nav-brand">
+    <img src="logo.png" alt="Weblaze" width="22" height="22" />
+    <span>Weblaze</span>
+  </a>
+  <div class="nav-links">
+    <a href="#manifesto" data-i18n="nav.manifesto">Studio</a>
+    <a href="#capabilities" data-i18n="nav.capabilities">Services</a>
+    <a href="#process" data-i18n="nav.process">Process</a>
+    <a href="#plans" data-i18n="nav.plans">Pricing</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button data-lang="en" class="active">EN</button>
+      <button data-lang="ca">CA</button>
+      <button data-lang="es">ES</button>
     </div>
+    <a href="#contact" class="cta" data-i18n="nav.cta">Start a project</a>
+  </div>
+</nav>
 
-    <!-- z:1 pixel grid canvas overlay (cursor erases pixels around cursor) -->
-    <canvas class="hero__pixels" aria-hidden="true"></canvas>
+<!-- Hero (single screen, scroll = phase trigger) -->
+<section id="top" class="hero">
+  <div class="starfield" aria-hidden="true"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-vignette" aria-hidden="true"></div>
 
-    <!-- z:2 giant background wordmark -->
-    <div class="hero__bgword" aria-hidden="true">weblaze</div>
+  <div class="hero-top">
+    <span class="hero-chapter" data-i18n="hero.chapter">Chapter 01 / From idea to launch</span>
+    <span class="hero-counter"><span id="hero-counter-num">01</span><span class="dim"> / 05</span></span>
+  </div>
 
-    <!-- z:5 content -->
-    <div class="hero__inner">
-      <div class="section-index">
-        <span class="section-index__num">01</span>
-        <span class="section-index__sep">/</span>
-        <span class="section-index__total">06</span>
-        <span class="section-index__label">Estudio digital</span>
-      </div>
-
-      <span class="chip">
-        <span class="chip__dot" aria-hidden="true"></span>
-        Respuesta en menos de 24h
-      </span>
-
-      <h1 class="hero__title" id="hero-title">
-        <span class="line">Diseñamos webs</span>
-        <span class="line">que <em>trabajan</em> por ti<span class="t-accent">.</span></span>
-      </h1>
-
-      <p class="hero__sub">
-        Estudio digital especializado en webs premium, sencillas y orientadas
-        a resultado. Sin plantillas. Sin humo. Sólo lo que tu negocio necesita.
-      </p>
-
-      <div class="hero__ctas">
-        <a href="#planes" class="btn btn--primary">
-          Ver presupuesto
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
-        </a>
-        <a href="#capacidades" class="btn btn--ghost">Ver capacidades</a>
-      </div>
-
-      <a class="scroll-cue" href="#manifiesto" aria-label="Desplazarse">
-        <span>scroll</span>
-        <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M12 4v16m-5-5 5 5 5-5"/></svg>
-      </a>
+  <div class="hero-bottom">
+    <div id="hero-beat" class="hero-beat">
+      <div class="hero-eyebrow" id="hero-eyebrow"></div>
+      <h2 class="hero-title" id="hero-title"></h2>
+      <p class="hero-body" id="hero-body"></p>
     </div>
-  </section>
-
-  <!-- 02 MANIFIESTO -->
-  <section class="manifesto" id="manifiesto" aria-labelledby="m-title">
-    <div class="section-index">
-      <span class="section-index__num">02</span>
-      <span class="section-index__sep">/</span>
-      <span class="section-index__total">06</span>
-      <span class="section-index__label">Manifiesto</span>
+    <div class="hero-scroll">
+      <span class="rule"></span>
+      <span data-i18n="hero.scroll">Scroll to see how we build</span>
     </div>
+  </div>
 
-    <h2 class="manifesto__title" id="m-title">
-      <span class="reveal-line">Sin plantillas.</span>
-      <span class="reveal-line">Sin humo.</span>
-      <span class="reveal-line">Sólo webs <em>que funcionan</em></span>
-      <span class="reveal-line">desde el primer día.</span>
-    </h2>
+  <!-- Phase dots -->
+  <div class="hero-dots" aria-hidden="true">
+    <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+  </div>
+</section>
 
-    <div class="manifesto__cols">
-      <p>
-        Construimos cada web desde cero, alrededor de tu cliente y de tu
-        modelo de negocio. Diseño claro, código limpio, carga rápida.
-      </p>
-      <p>
-        Sin tickets fríos ni paneles imposibles. Hablas con la persona que
-        está construyendo tu web, por WhatsApp o por email, cuando lo necesites.
-      </p>
-    </div>
-  </section>
+<!-- Manifesto -->
+<section id="manifesto" class="section">
+  <div class="reveal">
+    <div class="label" data-i18n="manifesto.label">Studio</div>
+    <h2 class="big-title" data-i18n="manifesto.title">We build websites with the patience of designers and the precision of engineers.</h2>
+    <p class="muted-title" data-i18n="manifesto.titleMuted">Every pixel earns its place. Every interaction is built to convert.</p>
+    <div class="grid-3" id="manifesto-items"></div>
+  </div>
+</section>
 
-  <!-- 03 CAPACIDADES -->
-  <section class="caps" id="capacidades" aria-labelledby="caps-title">
-    <div class="section-index">
-      <span class="section-index__num">03</span>
-      <span class="section-index__sep">/</span>
-      <span class="section-index__total">06</span>
-      <span class="section-index__label">Capacidades</span>
-    </div>
+<!-- Capabilities -->
+<section id="capabilities" class="section bg-soft">
+  <div class="reveal">
+    <div class="label" data-i18n="capabilities.label">Services</div>
+    <h2 class="big-title" data-i18n="capabilities.title">Four disciplines, one obsession.</h2>
+    <p class="muted-title" data-i18n="capabilities.body"></p>
+    <div class="grid-4" id="capabilities-items"></div>
+  </div>
+</section>
 
-    <div class="caps__head">
-      <h2 id="caps-title">
-        Capacidades<br>
-        <span class="t-muted">para mover</span> <em>la aguja.</em>
-      </h2>
-      <p>
-        Diseño, desarrollo, posicionamiento y soporte. Todo lo que tu
-        presencia digital necesita, bajo un mismo equipo.
-      </p>
-    </div>
+<!-- Process -->
+<section id="process" class="section">
+  <div class="reveal">
+    <div class="label" data-i18n="process.label">Process</div>
+    <h2 class="big-title" data-i18n="process.title"></h2>
+    <ol class="process-list" id="process-items"></ol>
+  </div>
+</section>
 
-    <ol class="caps__list">
+<!-- Plans -->
+<section id="plans" class="section bg-soft">
+  <div class="reveal">
+    <div class="label" data-i18n="plans.label">Pricing</div>
+    <h2 class="big-title" data-i18n="plans.title"></h2>
+    <div class="grid-4 plans" id="plans-items"></div>
+  </div>
+</section>
 
-      <li class="cap">
-        <span class="cap__num">01</span>
-        <div class="cap__body">
-          <h3>Diseño Web</h3>
-          <p>Interfaces que enamoran a tu cliente desde el primer scroll. Visualmente impecables, conceptualmente claras.</p>
-        </div>
-        <ul class="cap__tags"><li>Figma</li><li>Brand</li><li>UX</li></ul>
-        <span class="cap__arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
-      </li>
-
-      <li class="cap">
-        <span class="cap__num">02</span>
-        <div class="cap__body">
-          <h3>Desarrollo a medida</h3>
-          <p>Webs ultra rápidas, escalables y seguras. Cero dependencia de plantillas, total libertad creativa.</p>
-        </div>
-        <ul class="cap__tags"><li>React</li><li>Next.js</li><li>TypeScript</li></ul>
-        <span class="cap__arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
-      </li>
-
-      <li class="cap">
-        <span class="cap__num">03</span>
-        <div class="cap__body">
-          <h3>E-commerce</h3>
-          <p>Tiendas que convierten. Checkout optimizado, pagos integrados y analítica que sí entiendes.</p>
-        </div>
-        <ul class="cap__tags"><li>Shopify</li><li>Stripe</li><li>Supabase</li></ul>
-        <span class="cap__arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
-      </li>
-
-      <li class="cap">
-        <span class="cap__num">04</span>
-        <div class="cap__body">
-          <h3>SEO local y nacional</h3>
-          <p>Aparece primero en Google. Optimización técnica + contenido que posiciona y trae clientes.</p>
-        </div>
-        <ul class="cap__tags"><li>Core Web Vitals</li><li>Schema</li><li>Local</li></ul>
-        <span class="cap__arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
-      </li>
-
-      <li class="cap">
-        <span class="cap__num">05</span>
-        <div class="cap__body">
-          <h3>Responsive premium</h3>
-          <p>Experiencia perfecta en cualquier pantalla. Desde móvil pequeño hasta monitor 4K.</p>
-        </div>
-        <ul class="cap__tags"><li>Tailwind</li><li>Vite</li><li>A11y</li></ul>
-        <span class="cap__arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
-      </li>
-
-      <li class="cap">
-        <span class="cap__num">06</span>
-        <div class="cap__body">
-          <h3>Mantenimiento</h3>
-          <p>Hosting, dominio, copias, actualizaciones y soporte humano por WhatsApp. Tu web siempre a punto.</p>
-        </div>
-        <ul class="cap__tags"><li>Monitoring</li><li>Backups</li><li>WhatsApp</li></ul>
-        <span class="cap__arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
-      </li>
-
-    </ol>
-  </section>
-
-  <!-- 04 STACK MARQUEE -->
-  <section class="stack" aria-label="Stack tecnológico">
-    <div class="stack__label">
-      <span class="mono">// stack</span>
-      <span>Las herramientas con las que construimos cada proyecto</span>
-    </div>
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__track">
-        <span>React</span><span class="dot">·</span>
-        <span>Next.js</span><span class="dot">·</span>
-        <span>TypeScript</span><span class="dot">·</span>
-        <span>Tailwind</span><span class="dot">·</span>
-        <span>Vite</span><span class="dot">·</span>
-        <span>Figma</span><span class="dot">·</span>
-        <span>WordPress</span><span class="dot">·</span>
-        <span>Stripe</span><span class="dot">·</span>
-        <span>Vercel</span><span class="dot">·</span>
-        <span>Supabase</span><span class="dot">·</span>
-        <span>GSAP</span><span class="dot">·</span>
-        <span>React</span><span class="dot">·</span>
-        <span>Next.js</span><span class="dot">·</span>
-        <span>TypeScript</span><span class="dot">·</span>
-        <span>Tailwind</span><span class="dot">·</span>
-        <span>Vite</span><span class="dot">·</span>
-        <span>Figma</span><span class="dot">·</span>
-        <span>WordPress</span><span class="dot">·</span>
-        <span>Stripe</span><span class="dot">·</span>
-        <span>Vercel</span><span class="dot">·</span>
-        <span>Supabase</span><span class="dot">·</span>
-        <span>GSAP</span><span class="dot">·</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 05 PROCESO -->
-  <section class="process" id="proceso" aria-labelledby="proc-title">
-    <div class="section-index">
-      <span class="section-index__num">04</span>
-      <span class="section-index__sep">/</span>
-      <span class="section-index__total">06</span>
-      <span class="section-index__label">Proceso</span>
-    </div>
-
-    <div class="process__head">
-      <h2 id="proc-title">
-        Cuatro fases.<br>
-        <em>Cero sorpresas.</em>
-      </h2>
-      <p>
-        Trabajamos con un proceso transparente y medible. Sabes en cada
-        momento dónde está tu proyecto y qué viene después.
-      </p>
-    </div>
-
-    <ol class="process__rail">
-      <li class="step">
-        <div class="step__num">01</div>
-        <h3>Estrategia</h3>
-        <p>Analizamos tu negocio, competencia y audiencia. Definimos objetivos medibles.</p>
-        <span class="step__bar" aria-hidden="true"></span>
-      </li>
-      <li class="step">
-        <div class="step__num">02</div>
-        <h3>Diseño</h3>
-        <p>Wireframes y diseño visual aprobados antes de tocar una sola línea de código.</p>
-        <span class="step__bar" aria-hidden="true"></span>
-      </li>
-      <li class="step">
-        <div class="step__num">03</div>
-        <h3>Desarrollo</h3>
-        <p>Construimos tu web con tecnologías premium. Rápida, segura, escalable.</p>
-        <span class="step__bar" aria-hidden="true"></span>
-      </li>
-      <li class="step">
-        <div class="step__num">04</div>
-        <h3>Lanzamiento</h3>
-        <p>Publicamos, medimos y optimizamos. Tu web no acaba en el deploy, empieza ahí.</p>
-      </li>
-    </ol>
-  </section>
-
-  <!-- 06 PRESUPUESTO / PLANES -->
-  <section class="plans" id="planes" aria-labelledby="plans-title">
-    <div class="section-index">
-      <span class="section-index__num">05</span>
-      <span class="section-index__sep">/</span>
-      <span class="section-index__total">06</span>
-      <span class="section-index__label">Presupuesto</span>
-    </div>
-
-    <div class="plans__head">
-      <h2 id="plans-title">
-        Presupuesto<br>
-        <em>claro y por tramos.</em>
-      </h2>
-      <p>
-        Sin sorpresas ni letra pequeña. Empieza por lo que necesites hoy y
-        añade mantenimiento o SEO más adelante según vaya el negocio.
-      </p>
-    </div>
-
-    <div class="plans__group">
-      <header class="plans__group-head">
-        <span class="mono">// 01</span>
-        <h3>Webs</h3>
-      </header>
-
-      <div class="cards">
-
-        <article class="card">
-          <header><h4>Emprendedores</h4><span class="card__tag">Lanzamiento</span></header>
-          <div class="price"><strong>310 – 590€</strong><span>proyecto</span></div>
-          <p class="card__desc">Web sencilla tipo presentación, con contacto y WhatsApp. Para empezar a tener presencia online.</p>
-          <ul class="card__list">
-            <li>1 página o landing</li>
-            <li>Formulario + WhatsApp</li>
-            <li>Diseño limpio y responsive</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <header><h4>Web básica</h4><span class="card__tag">3 – 5 secciones</span></header>
-          <div class="price"><strong>500 – 900€</strong><span>proyecto</span></div>
-          <p class="card__desc">Web más completa con varias secciones, contacto, Google Maps y optimización básica para Google.</p>
-          <ul class="card__list">
-            <li>3 a 5 secciones</li>
-            <li>Google Maps + contacto</li>
-            <li>SEO técnico básico</li>
-          </ul>
-        </article>
-
-        <article class="card card--featured">
-          <span class="badge">Recomendada</span>
-          <header><h4>Web negocio</h4><span class="card__tag">Capta clientes</span></header>
-          <div class="price"><strong>1.100 – 1.600€</strong><span>proyecto</span></div>
-          <p class="card__desc">Web más trabajada, con diseño personalizado, pensada para captar clientes. Mejor posicionamiento en Google local.</p>
-          <ul class="card__list">
-            <li>Diseño 100% personalizado</li>
-            <li>Optimización para conversión</li>
-            <li>SEO local incluido</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <header><h4>Web avanzada</h4><span class="card__tag">A medida</span></header>
-          <div class="price"><strong>1.600 – 3.000€</strong><span>según necesidades</span></div>
-          <p class="card__desc">Para proyectos con funciones específicas: reservas, bases de datos, áreas privadas o desarrollo a medida.</p>
-          <ul class="card__list">
-            <li>Reservas o e-commerce</li>
-            <li>Bases de datos</li>
-            <li>Integraciones a medida</li>
-          </ul>
-        </article>
-
-      </div>
-    </div>
-
-    <div class="plans__group">
-      <header class="plans__group-head">
-        <span class="mono">// 02</span>
-        <h3>Mantenimiento <small>(opcional, mensual)</small></h3>
-      </header>
-
-      <div class="cards cards--two">
-
-        <article class="card">
-          <header><h4>Esencial</h4><span class="card__tag">Tranquilidad</span></header>
-          <div class="price"><strong>30 – 40€</strong><span>/ mes</span></div>
-          <p class="card__desc">Lo necesario para que tu web esté siempre online y a salvo.</p>
-          <ul class="card__list">
-            <li>Hosting + dominio</li>
-            <li>Copias de seguridad</li>
-            <li>Actualizaciones</li>
-            <li>Soporte básico</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <header><h4>Completo</h4><span class="card__tag">Con cambios</span></header>
-          <div class="price"><strong>50 – 70€</strong><span>/ mes</span></div>
-          <p class="card__desc">Todo lo anterior + cambios periódicos y más atención por nuestra parte.</p>
-          <ul class="card__list">
-            <li>Todo lo del plan Esencial</li>
-            <li>Cambios y mejoras incluidos</li>
-            <li>Soporte prioritario WhatsApp</li>
-            <li>Pequeñas optimizaciones</li>
-          </ul>
-        </article>
-
-      </div>
-    </div>
-
-    <div class="plans__group">
-      <header class="plans__group-head">
-        <span class="mono">// 03</span>
-        <h3>SEO <small>(opcional, mensual)</small></h3>
-      </header>
-
-      <div class="cards cards--two">
-
-        <article class="card">
-          <header><h4>Local</h4><span class="card__tag">Tu zona</span></header>
-          <div class="price"><strong>80 – 120€</strong><span>/ mes</span></div>
-          <p class="card__desc">Para aparecer en tu ciudad o zona cuando alguien busque tu servicio.</p>
-          <ul class="card__list">
-            <li>Ficha Google Business</li>
-            <li>SEO local optimizado</li>
-            <li>Reseñas y reputación</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <header><h4>Avanzado</h4><span class="card__tag">Crecimiento</span></header>
-          <div class="price"><strong>120 – 200€</strong><span>/ mes</span></div>
-          <p class="card__desc">Trabajo continuo para ir subiendo posiciones de forma sostenida en Google.</p>
-          <ul class="card__list">
-            <li>Estrategia de contenidos</li>
-            <li>Optimización técnica continua</li>
-            <li>Informes mensuales</li>
-          </ul>
-        </article>
-
-      </div>
-    </div>
-
-    <p class="plans__note">
-      No hace falta hacer todo desde el principio. Se puede empezar sólo con
-      la web e ir añadiendo mantenimiento o SEO más adelante según cómo vaya
-      el negocio. <a href="#contacto">Lo adaptamos a tu caso →</a>
-    </p>
-  </section>
-
-  <!-- 07 CONTACTO -->
-  <section class="contact" id="contacto" aria-labelledby="c-title">
-    <div class="section-index">
-      <span class="section-index__num">06</span>
-      <span class="section-index__sep">/</span>
-      <span class="section-index__total">06</span>
-      <span class="section-index__label">Contacto</span>
-    </div>
-
-    <div class="contact__grid">
-      <div class="contact__copy">
-        <h2 id="c-title">
-          Hablemos de tu<br>
-          <em>próximo proyecto.</em>
-        </h2>
-        <p>
-          Cuéntanos tu idea y te respondemos en menos de 24h con propuesta
-          y presupuesto personalizado. Sin compromiso.
-        </p>
-
-        <ul class="contact__data">
-          <li>
-            <span class="mono">e&nbsp;</span>
-            <a href="mailto:webcreatorspains@gmail.com">webcreatorspains@gmail.com</a>
-          </li>
-          <li>
-            <span class="mono">t&nbsp;</span>
-            <a href="tel:+34689194499">+34 689194499</a>
-          </li>
-          <li>
-            <span class="mono">a&nbsp;</span>
-            <span>Remoto · Europa</span>
-          </li>
-        </ul>
-      </div>
-
-      <form class="contact__form" id="contact-form" novalidate>
-        <div class="field">
-          <label for="f-name">Nombre</label>
-          <input id="f-name" name="name" type="text" required autocomplete="name" />
-        </div>
-        <div class="field">
-          <label for="f-email">Email</label>
-          <input id="f-email" name="email" type="email" required autocomplete="email" />
-        </div>
-        <div class="field field--full">
-          <label for="f-subject">Asunto</label>
-          <input id="f-subject" name="subject" type="text" required />
-        </div>
-        <div class="field field--full">
-          <label for="f-msg">Mensaje</label>
-          <textarea id="f-msg" name="message" rows="5" required></textarea>
-        </div>
-        <div class="field field--full">
-          <button type="submit" class="btn btn--primary btn--block">
-            Enviar mensaje
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
-          </button>
-        </div>
-        <p class="form__status" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer" role="contentinfo">
-  <div class="footer__top">
+<!-- Contact -->
+<section id="contact" class="section">
+  <div class="reveal contact-grid">
     <div>
-      <div class="footer__brand">
-        <svg viewBox="0 0 32 32" aria-hidden="true">
-          <path fill="currentColor" d="M16 2c2 5-3 7-3 12a6 6 0 0012 0c0-3-2-5-3-7 4 2 7 6 7 11a10 10 0 11-20 0c0-7 6-10 7-16z"/>
-        </svg>
-        <span>Weblaze</span>
-        <span class="footer__reg">®</span>
+      <div class="label" data-i18n="contact.label">Contact</div>
+      <h2 class="big-title">
+        <span data-i18n="contact.title1"></span><br /><span class="accent" data-i18n="contact.title2"></span>
+      </h2>
+      <p class="muted-title" data-i18n="contact.body"></p>
+      <div class="contact-meta">
+        <span data-i18n="contact.location"></span>
       </div>
-      <p>Estudio digital · Webs premium que convierten.</p>
     </div>
-
-    <nav class="footer__cols" aria-label="Pie">
-      <div>
-        <h4>Navegación</h4>
-        <a href="#capacidades">Soluciones</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#planes">Presupuesto</a>
-        <a href="#contacto">Contacto</a>
-      </div>
-      <div>
-        <h4>Contacto</h4>
-        <a href="mailto:webcreatorspains@gmail.com">webcreatorspains@gmail.com</a>
-        <a href="tel:+346689194499">+34 689194499</a>
-        <span>Remoto · Europa</span>
-      </div>
-    </nav>
+    <form class="contact-form" id="contact-form">
+      <label><span data-i18n="contact.fields.name">Name</span><input name="name" required /></label>
+      <label><span data-i18n="contact.fields.email">Email</span><input type="email" name="email" required /></label>
+      <label><span data-i18n="contact.fields.company">Company</span><input name="company" /></label>
+      <label><span data-i18n="contact.fields.project">Project</span><textarea name="project" rows="4"></textarea></label>
+      <button type="submit" data-i18n="contact.submit">Send message</button>
+    </form>
   </div>
+</section>
 
-  <div class="footer__wordmark" aria-hidden="true">weblaze</div>
-
-  <div class="footer__bottom">
-    <span>© <span id="year"></span> Weblaze. Todos los derechos reservados.</span>
-    <span class="mono">Hecho a mano · 0 plantillas</span>
-  </div>
+<footer class="footer">
+  <span data-i18n="footer">Weblaze · Web design & development</span>
+  <span class="dim">© <span id="year"></span></span>
 </footer>
 
-<script src="main.js" defer></script>
+<script src="i18n.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
