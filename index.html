@@ -3,145 +3,271 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Weblaze — Web design & development studio</title>
-<meta name="description" content="Weblaze designs and builds fast, conversion-focused websites. Custom design, SEO and engineering for ambitious brands." />
-<meta property="og:title" content="Weblaze — Web design & development studio" />
-<meta property="og:description" content="Custom websites, built to convert. Design, development and SEO from a small specialist studio." />
+<title data-i18n="meta.title">Weblaze — Digital presence, redefined</title>
+<meta name="description" data-i18n-attr="content" data-i18n="meta.desc" content="Weblaze designs, builds and tunes every layer of your digital presence. Six disciplines, one team." />
+<meta property="og:title" content="Weblaze — Digital presence, redefined" />
+<meta property="og:description" content="Six disciplines, one team. Design, development, SEO, AI automation, branding and ongoing care." />
+<meta property="og:type" content="website" />
 <link rel="icon" type="image/png" href="logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<!-- Preloader -->
-<div id="preloader" aria-hidden="false">
-  <div class="preloader-inner">
-    <img src="logo.png" alt="Weblaze" width="48" height="48" class="preloader-logo" />
-    <div class="preloader-bar"><div id="preloader-fill"></div></div>
-    <div class="preloader-text"><span data-i18n="hero.loading">Loading assets</span> · <span id="preloader-pct">0%</span></div>
-  </div>
-</div>
-
 <!-- Nav -->
-<nav class="nav">
-  <a href="#top" class="nav-brand">
-    <img src="logo.png" alt="Weblaze" width="22" height="22" />
+<header class="nav" id="nav">
+  <a href="#top" class="brand">
+    <img src="logo.png" alt="" width="22" height="22" border-radius: 5px; />
     <span>Weblaze</span>
   </a>
-  <div class="nav-links">
-    <a href="#manifesto" data-i18n="nav.manifesto">Studio</a>
-    <a href="#capabilities" data-i18n="nav.capabilities">Services</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#manifesto" data-i18n="nav.studio">Studio</a>
+    <a href="#capabilities" data-i18n="nav.services">Services</a>
     <a href="#process" data-i18n="nav.process">Process</a>
-    <a href="#plans" data-i18n="nav.plans">Pricing</a>
-  </div>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+  </nav>
   <div class="nav-right">
-    <div class="lang-switch" role="group" aria-label="Language">
-      <button data-lang="en" class="active">EN</button>
-      <button data-lang="ca">CA</button>
-      <button data-lang="es">ES</button>
+    <div class="lang-switcher" role="group" aria-label="Language">
+      <button type="button" class="lang active" data-lang="en">EN</button>
+      <button type="button" class="lang" data-lang="ca">CA</button>
+      <button type="button" class="lang" data-lang="es">ES</button>
     </div>
-    <a href="#contact" class="cta" data-i18n="nav.cta">Start a project</a>
+    <a href="#contact" class="btn btn-primary magnetic"><span data-i18n="cta.start">Start a project</span></a>
   </div>
-</nav>
+  <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+</header>
 
-<!-- Hero (single screen, scroll = phase trigger) -->
-<section id="top" class="hero">
-  <div class="starfield" aria-hidden="true"></div>
-  <canvas id="hero-canvas"></canvas>
-  <div class="hero-vignette" aria-hidden="true"></div>
+<main id="top">
 
-  <div class="hero-top">
-    <span class="hero-chapter" data-i18n="hero.chapter">Chapter 01 / From idea to launch</span>
-    <span class="hero-counter"><span id="hero-counter-num">01</span><span class="dim"> / 05</span></span>
-  </div>
-
-  <div class="hero-bottom">
-    <div id="hero-beat" class="hero-beat">
-      <div class="hero-eyebrow" id="hero-eyebrow"></div>
-      <h2 class="hero-title" id="hero-title"></h2>
-      <p class="hero-body" id="hero-body"></p>
-    </div>
-    <div class="hero-scroll">
-      <span class="rule"></span>
-      <span data-i18n="hero.scroll">Scroll to see how we build</span>
-    </div>
+<!-- HERO -->
+<section class="hero-x" id="heroX">
+  <div class="hero-x-meta top">
+    <span class="mono" data-i18n="hero.chapter">Chapter 01 / From idea to launch</span>
+    <span class="mono dim">01 / 05</span>
   </div>
 
-  <!-- Phase dots -->
-  <div class="hero-dots" aria-hidden="true">
-    <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-  </div>
-</section>
+  <div class="hero-x-stage">
+    <h1 class="hero-x-title">
+      <span class="line">
+        <span class="word" data-i18n="hero.word1">DIGITAL</span>
+        <span class="word" data-i18n="hero.word2">PRESENCE,</span>
+      </span>
+      <span class="line">
+        <span class="word italic" data-i18n="hero.word3">redefined</span>
+      </span>
+    </h1>
 
-<!-- Manifesto -->
-<section id="manifesto" class="section">
-  <div class="reveal">
-    <div class="label" data-i18n="manifesto.label">Studio</div>
-    <h2 class="big-title" data-i18n="manifesto.title">We build websites with the patience of designers and the precision of engineers.</h2>
-    <p class="muted-title" data-i18n="manifesto.titleMuted">Every pixel earns its place. Every interaction is built to convert.</p>
-    <div class="grid-3" id="manifesto-items"></div>
-  </div>
-</section>
-
-<!-- Capabilities -->
-<section id="capabilities" class="section bg-soft">
-  <div class="reveal">
-    <div class="label" data-i18n="capabilities.label">Services</div>
-    <h2 class="big-title" data-i18n="capabilities.title">Four disciplines, one obsession.</h2>
-    <p class="muted-title" data-i18n="capabilities.body"></p>
-    <div class="grid-4" id="capabilities-items"></div>
-  </div>
-</section>
-
-<!-- Process -->
-<section id="process" class="section">
-  <div class="reveal">
-    <div class="label" data-i18n="process.label">Process</div>
-    <h2 class="big-title" data-i18n="process.title"></h2>
-    <ol class="process-list" id="process-items"></ol>
-  </div>
-</section>
-
-<!-- Plans -->
-<section id="plans" class="section bg-soft">
-  <div class="reveal">
-    <div class="label" data-i18n="plans.label">Pricing</div>
-    <h2 class="big-title" data-i18n="plans.title"></h2>
-    <div class="grid-4 plans" id="plans-items"></div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="section">
-  <div class="reveal contact-grid">
-    <div>
-      <div class="label" data-i18n="contact.label">Contact</div>
-      <h2 class="big-title">
-        <span data-i18n="contact.title1"></span><br /><span class="accent" data-i18n="contact.title2"></span>
-      </h2>
-      <p class="muted-title" data-i18n="contact.body"></p>
-      <div class="contact-meta">
-        <span data-i18n="contact.location"></span>
+    <div class="hero-x-ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Design</span><span>·</span><span>Development</span><span>·</span><span>SEO</span><span>·</span><span>AI Automation</span><span>·</span><span>Branding</span><span>·</span><span>Performance</span><span>·</span>
+        <span>Design</span><span>·</span><span>Development</span><span>·</span><span>SEO</span><span>·</span><span>AI Automation</span><span>·</span><span>Branding</span><span>·</span><span>Performance</span><span>·</span>
       </div>
     </div>
-    <form class="contact-form" id="contact-form">
-      <label><span data-i18n="contact.fields.name">Name</span><input name="name" required /></label>
-      <label><span data-i18n="contact.fields.email">Email</span><input type="email" name="email" required /></label>
-      <label><span data-i18n="contact.fields.company">Company</span><input name="company" /></label>
-      <label><span data-i18n="contact.fields.project">Project</span><textarea name="project" rows="4"></textarea></label>
-      <button type="submit" data-i18n="contact.submit">Send message</button>
-    </form>
+  </div>
+
+  <div class="hero-x-meta bottom">
+    <div class="hero-x-sub">
+      <span class="mono dim">[ A ]</span>
+      <p data-i18n="hero.sub">Six disciplines, one team. We design, build and tune every layer so growth has nowhere to leak.</p>
+    </div>
+    <div class="hero-x-cta">
+      <a href="#contact" class="btn btn-primary magnetic"><span data-i18n="cta.start">Start a project</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="#manifesto" class="hero-x-link"><span data-i18n="hero.scroll">Scroll to explore</span> <span class="arr">↓</span></a>
+    </div>
   </div>
 </section>
 
+<!-- MANIFESTO / STUDIO -->
+<section id="manifesto" class="section manifesto-section">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow" data-i18n="nav.studio">Studio</span>
+      <h2 class="reveal" data-i18n="manifesto.h">We build websites with the patience of designers and the precision of engineers.</h2>
+      <p class="lead reveal" data-i18n="manifesto.lead">Every pixel earns its place. Every interaction is built to convert.</p>
+    </header>
+
+    <div class="why-points">
+      <div class="why-item reveal">
+        <b data-i18n="manifesto.p1.t">No templates.</b>
+        <p data-i18n="manifesto.p1.d">Each site is designed for one brand. Nothing arrives by default.</p>
+      </div>
+      <div class="why-item reveal">
+        <b data-i18n="manifesto.p2.t">Performance as craft.</b>
+        <p data-i18n="manifesto.p2.d">Sub-second loads, accessible from the first commit, ready for SEO.</p>
+      </div>
+      <div class="why-item reveal">
+        <b data-i18n="manifesto.p3.t">A small studio.</b>
+        <p data-i18n="manifesto.p3.d">Direct line to the people designing and shipping. No middle layer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES / CAPABILITIES -->
+<section id="capabilities" class="section">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow" data-i18n="nav.services">Services</span>
+      <h2 class="reveal" data-i18n="services.h">Everything you need to ship and scale.</h2>
+      <p class="lead reveal" data-i18n="services.lead">Six disciplines, one team. We design, build and tune every layer so growth has nowhere to leak.</p>
+    </header>
+
+    <div class="cards grid-3">
+      <article class="card tilt reveal">
+        <div class="card-num">01</div>
+        <h3 data-i18n="svc.1.t">Website Design</h3>
+        <p data-i18n="svc.1.d">Brand-driven UI, typography systems and motion principles tailored to your audience.</p>
+        <ul>
+          <li data-i18n="svc.1.l1">Custom design system</li>
+          <li data-i18n="svc.1.l2">Conversion-tested layouts</li>
+          <li data-i18n="svc.1.l3">Figma handoff</li>
+        </ul>
+      </article>
+      <article class="card tilt reveal">
+        <div class="card-num">02</div>
+        <h3 data-i18n="svc.2.t">Web Development</h3>
+        <p data-i18n="svc.2.d">Modern, type-safe codebases. Edge-rendered, observable, built to last past launch day.</p>
+        <ul>
+          <li data-i18n="svc.2.l1">Next.js · Astro · Webflow</li>
+          <li data-i18n="svc.2.l2">Headless CMS</li>
+          <li data-i18n="svc.2.l3">Core Web Vitals green</li>
+        </ul>
+      </article>
+      <article class="card tilt reveal">
+        <div class="card-num">03</div>
+        <h3 data-i18n="svc.3.t">SEO Growth</h3>
+        <p data-i18n="svc.3.d">Technical SEO, content architecture and link strategy that compounds month over month.</p>
+        <ul>
+          <li data-i18n="svc.3.l1">Audits &amp; roadmaps</li>
+          <li data-i18n="svc.3.l2">Programmatic SEO</li>
+          <li data-i18n="svc.3.l3">Analytics &amp; reporting</li>
+        </ul>
+      </article>
+      <article class="card tilt reveal">
+        <div class="card-num">04</div>
+        <h3 data-i18n="svc.4.t">AI Automation</h3>
+        <p data-i18n="svc.4.d">Custom agents, internal tools and workflow automations that remove the busywork.</p>
+        <ul>
+          <li data-i18n="svc.4.l1">Lead enrichment</li>
+          <li data-i18n="svc.4.l2">Support copilots</li>
+          <li data-i18n="svc.4.l3">RAG &amp; integrations</li>
+        </ul>
+      </article>
+      <article class="card tilt reveal">
+        <div class="card-num">05</div>
+        <h3 data-i18n="svc.5.t">Branding</h3>
+        <p data-i18n="svc.5.d">Identity systems with the rigor of a studio and the speed of a startup.</p>
+        <ul>
+          <li data-i18n="svc.5.l1">Logo &amp; marks</li>
+          <li data-i18n="svc.5.l2">Voice &amp; messaging</li>
+          <li data-i18n="svc.5.l3">Brand guidelines</li>
+        </ul>
+      </article>
+      <article class="card tilt reveal">
+        <div class="card-num">06</div>
+        <h3 data-i18n="svc.6.t">Performance &amp; Care</h3>
+        <p data-i18n="svc.6.d">Ongoing optimization, monitoring and iteration so your site keeps getting sharper.</p>
+        <ul>
+          <li data-i18n="svc.6.l1">Speed budgets</li>
+          <li data-i18n="svc.6.l2">A/B testing</li>
+          <li data-i18n="svc.6.l3">Monthly retainers</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="section">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow" data-i18n="nav.process">Process</span>
+      <h2 class="reveal" data-i18n="process.h">A four-phase orbit, repeated until the product clicks into place.</h2>
+    </header>
+
+    <ol class="process">
+      <li class="reveal">
+        <span class="ph">Phase 01</span>
+        <h3 data-i18n="proc.1.t">Discover</h3>
+        <p data-i18n="proc.1.d">We listen, audit and pressure-test the brief. Days, not weeks.</p>
+      </li>
+      <li class="reveal">
+        <span class="ph">Phase 02</span>
+        <h3 data-i18n="proc.2.t">Define</h3>
+        <p data-i18n="proc.2.d">A single page of truth: scope, goals, success metrics.</p>
+      </li>
+      <li class="reveal">
+        <span class="ph">Phase 03</span>
+        <h3 data-i18n="proc.3.t">Design &amp; Build</h3>
+        <p data-i18n="proc.3.d">High-fidelity from day one. Real type, real motion, real states.</p>
+      </li>
+      <li class="reveal">
+        <span class="ph">Phase 04</span>
+        <h3 data-i18n="proc.4.t">Launch &amp; Grow</h3>
+        <p data-i18n="proc.4.d">Shipped to production. Measured. Iterated. Handed off cleanly.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- CONTACT / CTA -->
+<section id="contact" class="cta-final">
+  <div class="container">
+    <div class="cta-card reveal">
+      <span class="eyebrow" data-i18n="nav.contact">Contact</span>
+      <h2 data-i18n="cta.h">Ready to build something exceptional?</h2>
+      <p data-i18n="cta.p">Tell us where you are and where you want to go. We'll come back within one business day with a path to get there.</p>
+
+      <div class="cta-actions">
+        <a href="mailto:webcreatorspains@gmail.com" class="btn btn-primary magnetic"><span data-i18n="cta.start_project">Start your project</span></a>
+        <a href="mailto:webcreatorspains@gmail.com?subject=Schedule%20a%20call" class="btn btn-ghost magnetic"><span data-i18n="cta.schedule">Schedule a call</span></a>
+      </div>
+
+      <div class="cta-contact">
+        <a href="mailto:webcreatorspains@gmail.com">webcreatorspains@gmail.com</a>
+        <span class="dot-sep">·</span>
+        <a href="tel:+34689194499">+34 689 194 499</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
 <footer class="footer">
-  <span data-i18n="footer">Weblaze · Web design & development</span>
-  <span class="dim">© <span id="year"></span></span>
+  <div class="container foot">
+    <div class="foot-brand">
+      <div class="brand"><img src="logo.png" alt="" width="22" height="22" border-radius: 5px; /><span>Weblaze</span></div>
+      <p data-i18n="foot.tagline">Digital presence, redefined. A small studio for ambitious brands.</p>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <h5 data-i18n="nav.studio">Studio</h5>
+        <a href="#manifesto" data-i18n="foot.about">About</a>
+        <a href="#capabilities" data-i18n="nav.services">Services</a>
+        <a href="#process" data-i18n="nav.process">Process</a>
+      </div>
+      <div>
+        <h5 data-i18n="foot.contact">Contact</h5>
+        <a href="mailto:webcreatorspains@gmail.com">webcreatorspains@gmail.com</a>
+        <a href="tel:+34689194499">+34 689 194 499</a>
+      </div>
+      <div>
+        <h5 data-i18n="foot.language">Language</h5>
+        <a href="#" data-set-lang="en">English</a>
+        <a href="#" data-set-lang="ca">Català</a>
+        <a href="#" data-set-lang="es">Español</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom container">
+    <span>Weblaze © <span id="yr"></span></span>
+    <span data-i18n="foot.built">Built with care.</span>
+  </div>
 </footer>
 
-<script src="i18n.js"></script>
-<script src="main.js"></script>
+<script src="main.js" defer></script>
 </body>
 </html>
