@@ -19,7 +19,7 @@
 <!-- Nav -->
 <header class="nav" id="nav">
   <a href="#top" class="brand">
-    <img src="logo.png" alt="" width="22" height="22" border-radius: 5px; />
+    <img src="logo.png" alt="" width="22" height="22" class="logo-img" />
     <span>Weblaze</span>
   </a>
   <nav class="nav-links" aria-label="Primary">
@@ -45,10 +45,10 @@
 <section class="hero-x" id="heroX">
   <div class="hero-x-meta top">
     <span class="mono" data-i18n="hero.chapter">Chapter 01 / From idea to launch</span>
-    <span class="mono dim">01 / 05</span>
   </div>
 
   <div class="hero-x-stage">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
     <h1 class="hero-x-title">
       <span class="line">
         <span class="word" data-i18n="hero.word1">DIGITAL</span>
@@ -239,7 +239,7 @@
 <footer class="footer">
   <div class="container foot">
     <div class="foot-brand">
-      <div class="brand"><img src="logo.png" alt="" width="22" height="22" border-radius: 5px; /><span>Weblaze</span></div>
+      <div class="brand"><img src="logo.png" alt="" width="22" height="22" class="logo-img" /><span>Weblaze</span></div>
       <p data-i18n="foot.tagline">Digital presence, redefined. A small studio for ambitious brands.</p>
     </div>
     <div class="foot-cols">
@@ -267,6 +267,18 @@
     <span data-i18n="foot.built">Built with care.</span>
   </div>
 </footer>
+
+<nav class="mobile-nav" aria-label="Mobile navigation">
+  <a href="#manifesto" data-i18n="nav.studio" onclick="document.body.classList.remove('menu-open')">Studio</a>
+  <a href="#capabilities" data-i18n="nav.services" onclick="document.body.classList.remove('menu-open')">Services</a>
+  <a href="#process" data-i18n="nav.process" onclick="document.body.classList.remove('menu-open')">Process</a>
+  <a href="#contact" data-i18n="nav.contact" onclick="document.body.classList.remove('menu-open')">Contact</a>
+  <div class="mobile-lang">
+    <button type="button" class="lang active" data-lang="en">EN</button>
+    <button type="button" class="lang" data-lang="ca">CA</button>
+    <button type="button" class="lang" data-lang="es">ES</button>
+  </div>
+</nav>
 
 <script src="main.js" defer></script>
 </body>

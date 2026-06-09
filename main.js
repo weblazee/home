@@ -1,4 +1,48 @@
 (() => {
+  // ---------- Hero canvas background — halftone dots ----------
+  const heroCanvas = document.getElementById('heroCanvas');
+  if (heroCanvas) {
+    const ctx = heroCanvas.getContext('2d');
+    let W = 0, H = 0;
+
+    const resize = () => {
+      W = heroCanvas.width = heroCanvas.offsetWidth;
+      H = heroCanvas.height = heroCanvas.offsetHeight;
+      drawDots();
+    };
+
+    const drawDots = () => {
+      ctx.clearRect(0, 0, W, H);
+      const spacing = 22;
+      const maxR   = 3.2;
+      const cols   = Math.ceil(W / spacing) + 1;
+      const rows   = Math.ceil(H / spacing) + 1;
+      const cx     = W / 2;
+      const cy     = H / 2;
+      const maxDist = Math.hypot(cx, cy);
+
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const x = c * spacing;
+          const y = r * spacing;
+          const dist = Math.hypot(x - cx, y - cy);
+          // Dots largest near center, fade to nothing at edges
+          const t = 1 - Math.pow(dist / maxDist, 1.5);
+          const radius = maxR * t;
+          if (radius < 0.3) continue;
+
+          ctx.beginPath();
+          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(236,232,220,${0.35 * t})`;
+          ctx.fill();
+        }
+      }
+    };
+
+    resize();
+    new ResizeObserver(resize).observe(heroCanvas);
+  }
+
   // ---------- Year ----------
   const yr = document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();
